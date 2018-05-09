@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../img/logo.png">
+  <title>Menu Principal</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Page level plugin CSS-->
+  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-user-circle"></i>
+            <span class="nav-link-text">INICIO</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Matricula">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#matriculaAcordion" data-parent="#exampleAccordion">
+            <i class="fas fa-book"></i>
+            <span class="nav-link-text">MATRICULA</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="matriculaAcordion">
+            <li>
+              <a href="adicionar.html">Adicionar asignatura</a>
+            </li>
+            <li>
+              <a href="cancelar.html">Cancelar asignatura</a>
+            </li>
+            <li>
+              <a href="forma.html">Forma 03</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Historial">
+          <a class="nav-link" href="historial.html">
+            <i class="fas fa-history"></i>
+            <span class="nav-link-text">HISTORIAL</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Calificaciones">
+          <a class="nav-link" href="calificaciones.html">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">CALIFICACIONES</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#salirmodal">
+            <i class="fas fa-sign-out-alt"></i>Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">INICIO</a>
+        </li>
+        <li class="breadcrumb-item active">PERFIL</li>
+      </ol>
+      <h1>Bienvenido usuario</h1>
+      <hr>
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-comments"></i>
+              </div>
+              <div class="mr-5">Correo Institucional</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="https://mail.unah.edu.hn/">
+              <span class="float-left">Ir</span>
+              <span class="float-right">
+                <i class="fas fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fab fa-blogger-b"></i>
+              </div>
+              <div class="mr-5">Blog UNAH</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="https://presencia.unah.edu.hn/">
+              <span class="float-left">Ir</span>
+              <span class="float-right">
+                <i class="fas fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="far fa-smile"></i>
+              </div>
+              <div class="mr-5">Campus Virtual</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="https://campusvirtual.unah.edu.hn/">
+              <span class="float-left">Ir</span>
+              <span class="float-right">
+                <i class="fas fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Area de perfil-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-info-circle"></i> Perfil</div>
+            <div class="card-body">
+              <table class="table table-borderless">
+                  <tbody id="valoresAlumno">
+                    
+                  </tbody>
+                </table>
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+          <!-- area de progreso de carrera -->
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Progreso de carrera</div>
+            <div class="card-body">
+              <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"       aria-valuemin="0" aria-valuemax="100">25%</div>
+            </div>
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>UNAH © Dirección de ingreso y permanencia 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="salirmodal" tabindex="-1" role="dialog" aria-labelledby="Salir" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalsalir">Salir</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Desea Cerrar sesion</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="../index.html">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../utilidades/jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../js/sb-admin-datatables.min.js"></script>
+    <script src="../js/controlador-alumno.js"></script>
+  </div>
+</body>
+
+</html>

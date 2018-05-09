@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../img/logo.png">
+  <title>Menu Principal</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Page level plugin CSS-->
+  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-user-circle"></i>
+            <span class="nav-link-text">INICIO</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Alumnos">
+          <a class="nav-link" href="Alumnos.html">
+            <i class="fas fa-users"></i>
+            <span class="nav-link-text">Alumnos</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profesores">
+          <a class="nav-link" href="Profesores.html">
+            <i class="fas fa-user-md"></i>
+            <span class="nav-link-text">Profesores</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Carreras">
+          <a class="nav-link" href="Carreras.html">
+            <i class="fas fa-id-card-alt"></i>
+            <span class="nav-link-text">Carreras</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Asignaturas">
+          <a class="nav-link" href="Asignaturas.html">
+            <i class="fas fa-book"></i>
+            <span class="nav-link-text">Asignaturas</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Espacios">
+          <a class="nav-link" href="Espacios.html">
+            <i class="fas fa-building"></i>
+            <span class="nav-link-text">Espacios</span>
+          </a>
+        </li>
+      
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#salirmodal">
+            <i class="fas fa-sign-out-alt"></i>Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">INICIO</a>
+        </li>
+        <li class="breadcrumb-item active">PERFIL</li>
+      </ol>
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card mb-3">
+            <div class="card-header" id="ingresar_actualizar">
+              <i id="i_ingresar_actualizar" class="fas fa-plus"></i> Ingresar Alumno</div>
+            <div class="card-body">
+             <!-- formulario de registro de Alumnos -->
+
+              <form>
+              <div class="tab-content">
+              <!-- formulario 1 -->
+              <div class="tab-pane active" id="formulario1">
+
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label >Primer nombre</label>
+                      <input class="form-control" id="InputPrimerNombre" type="text" placeholder="Ingrese Primer Nombre">
+                    </div>
+                    <div class="col-md-6">
+                      <label >Segundo nombre</label>
+                      <input class="form-control" id="InputSegundoNombre" type="text" placeholder="Ingrese Segundo Nombre">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label >Email</label>
+                  <input class="form-control" id="InputEmail" type="email" placeholder="Ingrese email">
+                </div>
+                <div class="form-group">
+                <div class="form-row">
+                      <div class="col-md-6">
+                      <label >Tipo de Identificacion</label>
+                      <select class="form-control" id="SelectIdentidicacion">
+                        <option selected>Tipo de Identificacion...</option>
+                        <option value="1">Identidad</option>
+                        <option value="2">Pasaporte</option>
+                        <option value="3">Otro</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label >Numero de Identificacion</label>
+                      <input class="form-control" id="InputIdentificacion" type="text" placeholder="Ingrese el Numero de Identificacion">
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                          <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">Sexo</legend>
+                            <div class="col-sm-10">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                  Hombre
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                <label class="form-check-label" for="gridRadios2">
+                                  Mujer
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <label >Fecha de Nacimiento</label>
+                      <input id="InputDate" class="form-control" type="date" placeholder="dd/mm/aa">
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" onclick="formu(0)" class="btn btn-primary btn-block" ">Siguiente</button>
+
+                <!-- fin formulario 1 -->
+                </div>
+
+                <!-- formulario 2 -->
+
+                <div class="tab-pane " id="formulario2">
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label >Departamento</label>
+                      <select id="SelectDepartamento" class="form-control">
+                        <option selected>Departamento...</option>
+                        <option>Francisco Morazan</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label >Ciudad</label>
+                      <select id="SelectCiudad" class="form-control">
+                        <option selected>Ciudad...</option>
+                        <option>Tegucigalpa</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputZip">Colonia</label>
+                      <input type="text" class="form-control" id="InputColonia">
+                    </div>
+                  </div>
+
+                   <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputTelfono1">Telefono 1 </label>
+                      <input type="text" class="form-control" id="InputTelefono1">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputTelfono2">Telefono 2</label>
+                      <input type="text" class="form-control" id="InputTelefono2">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <button type="button" onclick="formu(1)" class="btn btn-primary btn-block" ">Volver</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <button type="button" onclick="formu(2)" class="btn btn-primary btn-block" ">Siguiente</button>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- fin formulario 2 -->
+
+                <!-- formulario 3 -->
+
+                <div class="tab-pane " id="formulario3">
+
+                 <div class="form-group">
+                  <label >Carrera</label>
+                  <select id="SelectCarrera" class="form-control">
+                        <option selected>Carrera...</option>
+                        <option>Ingenieria en Siatemas</option>
+                      </select>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label >Password</label>
+                      <input class="form-control" id="InputPassword" type="password" placeholder="Password">
+                    </div>
+                    <div class="col-md-6">
+                      <label >Confirmar password</label>
+                      <input class="form-control" id="ConfirmarPassword" type="password" placeholder="Confirmar password">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <button type="button" onclick="formu(3)" class="btn btn-primary btn-block" ">Volver</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <button type="button" onclick="formu(4)" class="btn btn-primary btn-block" ">Agregar</button>
+                    </div>
+                  </div>
+                
+
+                </div>
+
+                <!-- fin formulario 3 -->
+
+                </div>
+              </form>
+
+             <!-- fin formulario de registro de Alumnos -->
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+        </div>
+        </div>
+        <hr>
+
+       <div class="tab-content">
+        <div class="tab-pane active" id="listView">
+
+      <!-- Ver Alumnos -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-users"></i> Ver Alumnos</div>
+            <div class="card-body">
+             
+              <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>CUENTA</th>
+                  <th>NOMBRE</th>
+                  <th>CARRERA</th>
+                  <th>ADMINISTRAR</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>CUENTA</th>
+                  <th>NOMBRE</th>
+                  <th>CARRERA</th>
+                  <th>ADMINISTRAR</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>20131005684</td>
+                  <td>Juan manuel serrat</td>
+                  <td>Ingeniria en sistemas</td>
+                  <td><button onclick="" type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                  <button onclick="" type="button" class="btn btn-success"><i class="fas fa-search-plus"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20141005541</td>
+                  <td>Joaquin Sabina</td>
+                  <td>Ingeniria en sistemas</td>
+                  <td><button onclick="" type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                  <button onclick="" type="button" class="btn btn-success"><i class="fas fa-search-plus"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                 <td>20131005684</td>
+                  <td>Silvio Rodriguez</td>
+                  <td>Ingeniria en sistemas</td>
+                  <td><button onclick="" type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                  <button onclick="" type="button" class="btn btn-success"><i class="fas fa-search-plus"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20131004541</td>
+                  <td>Alejandro Sanz</td>
+                  <td>Ingeniria en sistemas</td>
+                  <td><button onclick="" type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                  <button onclick="" type="button" class="btn btn-success"><i class="fas fa-search-plus"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+        </div>
+
+        </div>
+
+        </div>
+
+        <!-- fin Ver Alumnos -->
+
+        <div class="tab-pane " id="blockView">
+
+        <!-- Crear carga academica -->
+        <div class="row">
+      <div class="col-lg-7">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="far fa-calendar"></i> Carga Academica</div>
+            <div class="card-body">
+             
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+        </div>
+
+         <div class="col-lg-5">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-book"></i> Secciones </div>
+            <div class="card-body">
+             
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+        </div>
+
+        </div>
+        <!-- fin Crear carga academica -->
+
+
+        </div>
+      </div>  
+
+
+
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>UNAH © Dirección de ingreso y permanencia 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="salirmodal" tabindex="-1" role="dialog" aria-labelledby="Salir" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalsalir">Salir</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Desea Cerrar sesion</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="../index.html">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../utilidades/jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../js/sb-admin-datatables.min.js"></script>
+    <script src="../js/controlador.js"></script>
+  </div>
+</body>
+
+</html>

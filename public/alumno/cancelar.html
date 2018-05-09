@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../img/logo.png">
+  <title>Cancelar</title>
+  <!-- Bootstrap core CSS-->
+ <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Page level plugin CSS-->
+  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body onload="CargarClasesEliminar();" class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-user-circle"></i>
+            <span class="nav-link-text">INICIO</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Matricula">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#matriculaAcordion" data-parent="#exampleAccordion">
+            <i class="fas fa-book"></i>
+            <span class="nav-link-text">MATRICULA</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="matriculaAcordion">
+            <li>
+              <a href="adicionar.html">Adicionar asignatura</a>
+            </li>
+            <li>
+              <a href="cancelar.html">Cancelar asignatura</a>
+            </li>
+            <li>
+              <a href="forma.html">Forma 03</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Historial">
+          <a class="nav-link" href="historial.html">
+            <i class="fas fa-history"></i>
+            <span class="nav-link-text">HISTORIAL</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Calificaiones">
+          <a class="nav-link" href="calificaciones.html">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">CALIFICACIONES</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#salirmodal">
+            <i class="fas fa-sign-out-alt"></i>Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">INICIO</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="index.html">MATRICULA</a>
+        </li>
+        <li class="breadcrumb-item active">CANCELAR</li>
+      </ol>
+      <h1>Cancelar clases</h1>
+      <hr>
+
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Clases</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>CODIGO</th>
+                  <th>ASIGNATURA</th>
+                  <th>SECCION</th>
+                  <th>HI</th>
+                  <th>HF</th>
+                  <th>DIAS</th>
+                  <th>EDIFICIO</th>
+                  <th>AULA</th>
+                  <th>UV</th>
+                  <th>ELIMINAR</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>CODIGO</th>
+                  <th>ASIGNATURA</th>
+                  <th>SECCION</th>
+                  <th>HI</th>
+                  <th>HF</th>
+                  <th>DIAS</th>
+                  <th>EDIFICIO</th>
+                  <th>AULA</th>
+                  <th>UV</th>
+                  <th>ELIMINAR</th>
+                </tr>
+              </tfoot>
+              <tbody id="clasesEliminar">
+                
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+      </div>
+
+
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>UNAH © Dirección de ingreso y permanencia 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="salirmodal" tabindex="-1" role="dialog" aria-labelledby="Salir" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalsalir">Salir</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Desea Cerrar sesion</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="../index.html">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   <script src="../utilidades/jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../js/sb-admin-datatables.min.js"></script>
+    <script src="../js/controlador-alumno.js"></script>
+  </div>
+</body>
+
+</html>

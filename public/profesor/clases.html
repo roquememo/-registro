@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../img/logo.png">
+  <title>Clases</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Page level plugin CSS-->
+  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-user-circle"></i>
+            <span class="nav-link-text">INICIO</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clases">
+          <a class="nav-link" href="historial.html">
+            <i class="fas fa-book"></i>
+            <span class="nav-link-text">CLASES</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#salirmodal">
+            <i class="fas fa-sign-out-alt"></i>Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">INICIO</a>
+        </li>
+        <li class="breadcrumb-item active">Clases</li>
+      </ol>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="clasesSelect">Clases</label>
+      </div>
+      <select class="custom-select" id="clasesSelect">
+        <option selected>Seleccione una clase...</option>
+        <option value="1">Bases de datos</option>
+        <option value="2">Sistemas operativos</option>
+        <option value="3">Desarrollo web</option>
+      </select>
+    </div>
+      <hr>
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-info-circle"></i> Informacion de Clase</div>
+            <div class="card-body">
+              <table class="table table-borderless">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Codigo</th>
+                      <td>MM111</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nombre</th>
+                      <td>Geometria y Trigonometria</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Seccion</th>
+                      <td>1300</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Area de perfil-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-users"></i> Alumnos</div>
+            <div class="card-body">
+              <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>CUENTA</th>
+                  <th>NOMBRE</th>
+                  <th>NOTA</th>
+                  <th>ADMINISTRAR</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>CUENTA</th>
+                  <th>NOMBRE</th>
+                  <th>NOTA</th>
+                  <th>ADMINISTRAR</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>20131005684</td>
+                  <td>Juan manuel serrat</td>
+                  <td>92</td>
+                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td>20141005541</td>
+                  <td>Joaquin Sabina</td>
+                  <td>100</td>
+                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                 <td>20131005684</td>
+                  <td>Silvio Rodriguez</td>
+                  <td>89</td>
+                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td>20131004541</td>
+                  <td>Alejandro Sanz</td>
+                  <td>95</td>
+                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                 <td>20131005684</td>
+                  <td>Juan manuel serrat</td>
+                  <td>92</td>
+                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                </tr>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+      <!-- fin de tabla -->
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+          <!-- area de progreso de carrera -->
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-book"></i> Asignar Notas</div>
+            <div class="card-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="listView">
+          NO HAY DATOS
+        </div>
+
+        <div class="tab-pane " id="blockView">
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label">Cuenta</label>
+              <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext" id="cuenta_alumno_nota" value="20131008956">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label">Nombre</label>
+              <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext" id="nombre_alumno_nota" value="Joaquin sabina">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label">Nota</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="nota_alumno" placeholder="100">
+              </div>
+            </div>
+            <button class="btn btn-primary mb-2">Asignar Nota</button>
+        </div>
+      </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>UNAH © Dirección de ingreso y permanencia 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="salirmodal" tabindex="-1" role="dialog" aria-labelledby="Salir" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalsalir">Salir</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Desea Cerrar sesion</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="../index.html">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../utilidades/jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../js/sb-admin-datatables.min.js"></script>
+    <script src="../js/controlador.js"></script>
+  </div>
+</body>
+
+</html>
