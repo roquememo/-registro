@@ -7,30 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../img/logo.png">
+  <link rel="icon" href="img/logo.png">
   <title>Clases</title>
   <!-- Bootstrap core CSS-->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- Page level plugin CSS-->
-  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="css/sb-admin.css" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <a class="navbar-brand" href="home.html">DIPP-UNAH</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="home.html">
             <i class="fa fa-user-circle"></i>
             <span class="nav-link-text">INICIO</span>
           </a>
@@ -62,19 +63,16 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">INICIO</a>
+          <a href="home.html">INICIO</a>
         </li>
         <li class="breadcrumb-item active">Clases</li>
       </ol>
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="clasesSelect">Clases</label>
+        <label class="input-group-text" >Clases</label>
       </div>
       <select class="custom-select" id="clasesSelect">
-        <option selected>Seleccione una clase...</option>
-        <option value="1">Bases de datos</option>
-        <option value="2">Sistemas operativos</option>
-        <option value="3">Desarrollo web</option>
+
       </select>
     </div>
       <hr>
@@ -86,19 +84,8 @@
               <i class="fas fa-info-circle"></i> Informacion de Clase</div>
             <div class="card-body">
               <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <th scope="row">Codigo</th>
-                      <td>MM111</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Nombre</th>
-                      <td>Geometria y Trigonometria</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Seccion</th>
-                      <td>1300</td>
-                    </tr>
+                  <tbody id="clasesMostrar">
+                    
                   </tbody>
                 </table>
             </div>
@@ -130,38 +117,9 @@
                   <th>ADMINISTRAR</th>
                 </tr>
               </tfoot>
-              <tbody>
-                <tr>
-                  <td>20131005684</td>
-                  <td>Juan manuel serrat</td>
-                  <td>92</td>
-                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
-                </tr>
-                <tr>
-                  <td>20141005541</td>
-                  <td>Joaquin Sabina</td>
-                  <td>100</td>
-                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
-                </tr>
-                <tr>
-                 <td>20131005684</td>
-                  <td>Silvio Rodriguez</td>
-                  <td>89</td>
-                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
-                </tr>
-                <tr>
-                  <td>20131004541</td>
-                  <td>Alejandro Sanz</td>
-                  <td>95</td>
-                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
-                </tr>
-                <tr>
-                 <td>20131005684</td>
-                  <td>Juan manuel serrat</td>
-                  <td>92</td>
-                  <td><button onclick="editarNota()" type="button" class="btn btn-info"><i class="far fa-edit"></i></button></td>
-                </tr>
-                </tr>
+              <tbody id="AlumnosSeccion">
+                
+               
               </tbody>
             </table>
             </div>
@@ -185,22 +143,23 @@
             <div class="form-group row">
               <label class="col-sm-6 col-form-label">Cuenta</label>
               <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext" id="cuenta_alumno_nota" value="20131008956">
+                <input type="text" readonly class="form-control-plaintext" id="cuenta_alumno_nota" value="">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-6 col-form-label">Nombre</label>
               <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext" id="nombre_alumno_nota" value="Joaquin sabina">
+                <input type="text" readonly class="form-control-plaintext" id="nombre_alumno_nota" value="">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-6 col-form-label">Nota</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="nota_alumno" placeholder="100">
+                <input type="text" class="form-control" id="historial_alumno" value="" hidden>
+                <input type="text" class="form-control" id="nota_alumno" value="" placeholder="0">
               </div>
             </div>
-            <button class="btn btn-primary mb-2">Asignar Nota</button>
+            <button id="asignarNota" class="btn btn-primary mb-2">Asignar Nota</button>
         </div>
       </div>
           </div>
@@ -235,24 +194,24 @@
           <div class="modal-body">Desea Cerrar sesion</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="../index.html">Salir</a>
+            <a class="btn btn-primary" href="/salir">Salir</a>
           </div>
         </div>
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="../utilidades/jquery/jquery.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="utilidades/jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <script src="utilidades/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
-    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <script src="utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="utilidades/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin.min.js"></script>
+    <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="../js/sb-admin-datatables.min.js"></script>
-    <script src="../js/controlador.js"></script>
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/controlador-profesor.js"></script>
   </div>
 </body>
 

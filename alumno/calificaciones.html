@@ -7,31 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../img/logo.png">
-  <title>Adicionar</title>
+  <link rel="icon" href="img/logo.png">
+  <title>Calificaciones por periodo</title>
   <!-- Bootstrap core CSS-->
- <link href="../css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="../utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="utilidades/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <!-- Page level plugin CSS-->
-  <link href="../utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="utilidades/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body onload="cargarClasesMatriculadas();" class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body onload="cargarClasesCalificaciones();" class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">DIPP-UNAH</a>
+    <a class="navbar-brand" href="home.html">DIPP-UNAH</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="home.html">
             <i class="fa fa-user-circle"></i>
             <span class="nav-link-text">INICIO</span>
           </a>
@@ -85,62 +84,18 @@
     <div class="container-fluid">
        <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">INICIO</a>
+          <a href="home.html">INICIO</a>
         </li>
-        <li class="breadcrumb-item">
-          <a href="index.html">MATRICULA</a>
-        </li>
-        <li class="breadcrumb-item active">ADICIONAR</li>
+        <li class="breadcrumb-item active">CALIFICACIONES</li>
       </ol>
-      <h1>Adicionar clase</h1>
+      <h1>Calificaciones por periodo</h1>
       <hr>
       
 
+      <!-- tabla de historial -->
             <div class="card mb-3">
         <div class="card-header">
-          <i class="fas fa-plus-circle"></i> Adicionar
-          </div>
-
-        <div class="card-body">
-        
-        <div class="row">
-        
-        <div class="col-xl-4 col-sm-6 mb-3">
-          <select class="form-control" id="adicionar1" size=9>
-
-          </select>
-        </div> 
-        
-        <div class="col-xl-4 col-sm-6 mb-3">
-          <select class="form-control" id="adicionar2" size=9>
-            
-          </select>
-        </div>
-        
-        <div class="col-xl-4 col-sm-6 mb-3">
-
-             <select class="form-control" id="adicionar3" size=9>
-            
-              </select>
-        </div>
-
-        </div>
-
-        </div>
-        <div class="card-footer small text-muted">
-        <div>
-          <button class="btn btn-xs btn-primary" id="btn_matricular" data-toggle="modal" data-target="#matriculamodal" hidden="true">
-            <i class="fas fa-plus"></i> Matricular
-            </button>
-            <input type="text" value="" id="valorSeccion" hidden="true">
-            <label id="error" style="color: red; font-size:large;"></label>
-            </div>
-        </div>
-      </div>
-
-             <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Clases Matriculadas</div>
+          <i class="fa fa-table"></i> Clases</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -148,31 +103,23 @@
                 <tr>
                   <th>CODIGO</th>
                   <th>ASIGNATURA</th>
-                  <th>SECCION</th>
-                  <th>HI</th>
-                  <th>HF</th>
-                  <th>DIAS</th>
-                  <th>EDIFICIO</th>
-                  <th>AULA</th>
                   <th>UV</th>
-                  <th>PERIODO</th>
+                  <th>SECCION</th>
+                  <th>CALIFICACION</th>
+                  <th>OBS</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>CODIGO</th>
                   <th>ASIGNATURA</th>
-                  <th>SECCION</th>
-                  <th>HI</th>
-                  <th>HF</th>
-                  <th>DIAS</th>
-                  <th>EDIFICIO</th>
-                  <th>AULA</th>
                   <th>UV</th>
-                  <th>PERIODO</th>
+                  <th>SECCION</th>
+                  <th>CALIFICACION</th>
+                  <th>OBS</th>
                 </tr>
               </tfoot>
-              <tbody id="clasesMatriculadas">
+              <tbody id="clasesCalificaciones">
                 
               </tbody>
             </table>
@@ -180,6 +127,7 @@
         </div>
         <div class="card-footer small text-muted"></div>
       </div>
+      <!-- fin de tabla -->
 
 
     </div>
@@ -209,41 +157,23 @@
           <div class="modal-body">Desea Cerrar sesion</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="../index.html">Salir</a>
+            <a class="btn btn-primary" href="/salir">Salir</a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="modal fade" id="matriculamodal" tabindex="-1" role="dialog" aria-labelledby="Salir" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalsalir">MATRICULAR</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Esta seguro de querer matricular esta clase</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <button class="btn btn-primary" data-dismiss="modal" onclick="matricula()">Matricular</button>
-          </div>
-        </div>
-      </div>
-    </div>
-   <script src="../utilidades/jquery/jquery.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+   <script src="utilidades/jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../utilidades/jquery-easing/jquery.easing.min.js"></script>
+    <script src="utilidades/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../utilidades/datatables/jquery.dataTables.js"></script>
-    <script src="../utilidades/datatables/dataTables.bootstrap4.js"></script>
+    <script src="utilidades/datatables/jquery.dataTables.js"></script>
+    <script src="utilidades/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin.min.js"></script>
+    <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="../js/sb-admin-datatables.min.js"></script>
-    <script src="../js/controlador-alumno.js"></script>
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/controlador-alumno.js"></script>
   </div>
 </body>
 

@@ -45,28 +45,21 @@ $("#btnEntrar").click(function () {
 	}else{
 		$.ajax({
 			url: '/login',
-			method: 'GET',
+			method: 'POST',
 			data: 'valor='+valor+'&codigo='+codigo+'&pass='+pass,
+			dataType:"json",
 			success:function(respuesta){
-				if(respuesta=='entro'){
-					if(valor==1){
-						$(location).attr('href',"alumno/index.html");
-					}else if($("#slc-categoria").val()==2){
-						$(location).attr('href',"profesor/index.html");
-					}else{
-						$(location).attr('href',"administrador/index.html");
-					}
+				if(respuesta.estatus==0){
+					$(location).attr('href',"../home.html");
+				}else{
+					$("#inputCuentaLogin").addClass('is-invalid');
+					$("#inputPasswordLogin").addClass('is-invalid');
 				}
 			}
 		});
 	}
 	
 });
-
-function editarNota() {
-	$("#blockView").addClass('active');
-	$("#listView").removeClass('active');
-}
 
 function efecto(valor) {
 	if(valor==1){

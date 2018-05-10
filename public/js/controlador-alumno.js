@@ -9,7 +9,7 @@ $(document).ready(function () {
    		$.ajax({
 		url:'/matriculaCombo2',
 		method:'POST',
-		data:'id='+valor,
+		data: 'id='+valor,
 		dataType:"json",
 		success:function (respuesta) {
 			for (var i = 0; i < respuesta.length; i++) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
    		$.ajax({
 		url:'/matriculaCombo3',
 		method:'POST',
-		data:'id='+valor,
+		data: 'id='+valor,
 		dataType:"json",
 		success:function (respuesta) {
 			if(respuesta.CODIGO_SECCION=='matriculado'){
@@ -58,7 +58,6 @@ $(document).ready(function () {
 	$.ajax({
 		url:'/obtenerValores',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			$("#valoresAlumno").html('<tr>'+
@@ -95,7 +94,6 @@ $(document).ready(function () {
 	$.ajax({
 		url:'/matriculaCombo1',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			$("#adicionar1").html('');
@@ -120,7 +118,7 @@ function matricula() {
 	$.ajax({
 		url:'/matricular',
 		method:'POST',
-		data:'id=1&idseccion='+idseccion,
+		data:'idseccion='+idseccion,
 		dataType:"json",
 		success:function (respuesta) {
 			alert('Clase Matriculada');
@@ -140,7 +138,6 @@ function cargarClasesMatriculadas() {
 	$.ajax({
 		url:'/ClasesMatriculadas',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			$("#clasesMatriculadas").html('');
@@ -170,7 +167,6 @@ function cargarClasesHistorial() {
 	$.ajax({
 		url:'/ClasesHistorial',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			console.log(respuesta);
@@ -203,7 +199,6 @@ function cargarClasesCalificaciones() {
 	$.ajax({
 		url:'/ClasesMatriculadas',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			console.log(respuesta);
@@ -233,7 +228,6 @@ function CargarClasesEliminar() {
 	$.ajax({
 		url:'/clasesMatriculadas',
 		method:'POST',
-		data:'id=1',
 		dataType:"json",
 		success:function (respuesta) {
 			$("#clasesEliminar").html('');
