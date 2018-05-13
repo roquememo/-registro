@@ -84,8 +84,24 @@ app.post("/login",function(peticion, respuesta){
                 }	
          }
     	); 
-    }else{
-
+    }else if(tipo==2){
+    	conexion.query("SELECT CODIGO_EMPLEADO "+
+						"FROM tbl_empleados "+
+						"WHERE NUMERO_EMPLEADO=? "+
+						"AND CODIGO_TIPO_EMPLEADO=2 "+
+						"AND PASSWORD=?",
+        [peticion.body.codigo, peticion.body.pass],
+        function(err, data, fields){
+                if (data.length>0){
+                    peticion.session.codigo = data[0].CODIGO_EMPLEADO;
+                    peticion.session.codigoTipoUsuario = 2;
+                    data[0].estatus = 0;
+                    respuesta.send(data[0]); 
+                }else{
+                    respuesta.send({estatus:1, mensaje: "Login fallido"}); 
+                }	
+         }
+    	); 
     }
     
 });
@@ -388,6 +404,146 @@ app.post("/asignarNota",function (peticion,respuesta) {
 
 
 //--------------------------------FIN PROFESORES----------------------------------------------
+
+//---------------------------------Administrador----------------------------------------------
+
+app.post("/obtenerCarreras",function (peticion,respuesta) {
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query("SELECT CODIGO_CARRERA,NOMBRE_CARRERA "+
+					"FROM tbl_carreras "+
+					"WHERE CANTIDAD_ASIGNATURAS>10",
+		function(error, informacion, campos){
+			conexion.end();
+			respuesta.send(informacion);
+	});
+});
+
+app.post("/obtenerFacultades",function (peticion,respuesta) {
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query("SELECT CODIGO_FACULTAD,NOMBRE_FACULTAD "+
+					"FROM tbl_facultades",
+		function(error, informacion, campos){
+			conexion.end();
+			respuesta.send(informacion);
+	});
+});
+
+app.post("/CargarAlumnosTotales",function (peticion,respuesta) {
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query("SELECT alu.NUMERO_CUENTA,pe.NOMBRE,pe.APELLIDO,ca.NOMBRE_CARRERA "+
+					"FROM tbl_alumnos as alu, tbl_carreras as ca, "+
+					"tbl_carreras_x_alumnos as cxa, tbl_personas as pe "+
+					"WHERE alu.CODIGO_ALUMNO=cxa.CODIGO_ALUMNO "+
+					"AND cxa.CODIGO_CARRERA=ca.CODIGO_CARRERA "+
+					"AND alu.CODIGO_ALUMNO=pe.CODIGO_PERSONA",
+		function(error, informacion, campos){
+			conexion.end();
+			respuesta.send(informacion);
+	});
+});
+
+app.post("/CargarProfesoresTotales",function (peticion,respuesta) {
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query("SELECT emp.CODIGO_EMPLEADO,pe.NOMBRE,pe.APELLIDO,fa.NOMBRE_FACULTAD "+
+					"FROM tbl_empleados as emp, tbl_facultades as fa, tbl_personas as pe "+
+					"WHERE fa.CODIGO_FACULTAD=emp.CODIGO_FACULTAD "+
+					"AND emp.CODIGO_EMPLEADO=pe.CODIGO_PERSONA "+
+					"AND emp.CODIGO_TIPO_EMPLEADO=1",
+		function(error, informacion, campos){
+			conexion.end();
+			respuesta.send(informacion);
+	});
+});
+
+
+app.post("/agregarAlumno", function(peticion, respuesta){
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query(
+		"INSERT INTO tbl_personas (GENERO, CODIGO_TIPO_IDENTIFICACION, CODIGO_CIUDAD, NOMBRE, "+
+		"APELLIDO, FECHA_NACIMIENTO, IDENTIFICACION, DIRECCION, TELEFONO, CORREO_ELECTRONICO) "+
+		"VALUES (?,?,?,?,?,?,?,?,?,?)", 
+		[
+			peticion.body.selectSexo,
+			peticion.body.tipoidentificacion,
+			peticion.body.ciudad,
+			peticion.body.nombre,
+			peticion.body.apellido,
+			peticion.body.date,
+			peticion.body.identificacion,
+			peticion.body.colonia,
+			peticion.body.telefono,
+			peticion.body.email,
+		],
+		function(error, resultado){
+			if (resultado.affectedRows==1){
+				conexion.query(
+					"INSERT INTO tbl_alumnos (CODIGO_ALUMNO, NUMERO_CUENTA, PROMEDIO, CONTRASEÑA) "+
+                    "VALUES (?,?,0,?);", 
+					[
+					resultado.insertId,
+					peticion.body.cuenta,
+					peticion.body.password,
+					],
+					function(error2, resultado2){
+						if (resultado2.affectedRows==1){
+							conexion.query(
+								"INSERT INTO tbl_carreras_x_alumnos (CODIGO_ALUMNO, CODIGO_CARRERA, PROMEDIO, CANTIDAD_CLASES_APROBADAS, FECHA_REGISTRO_CARRERA) "+
+								"VALUES (?,?,0,0,SYSDATE());", 
+								[
+								resultado.insertId,
+								peticion.body.carrera,
+								],
+								function(error3, resultado3){
+									conexion.end();
+									respuesta.send(resultado3);		
+							});
+						}		
+				});
+			}
+			
+		});
+});
+
+
+app.post("/agregarProfesor", function(peticion, respuesta){
+	var conexion = mysql.createConnection(credenciales);
+	conexion.query(
+		"INSERT INTO tbl_personas (GENERO, CODIGO_TIPO_IDENTIFICACION, CODIGO_CIUDAD, NOMBRE, "+
+		"APELLIDO, FECHA_NACIMIENTO, IDENTIFICACION, DIRECCION, TELEFONO, CORREO_ELECTRONICO) "+
+		"VALUES (?,?,?,?,?,?,?,?,?,?)", 
+		[
+			peticion.body.selectSexo,
+			peticion.body.tipoidentificacion,
+			peticion.body.ciudad,
+			peticion.body.nombre,
+			peticion.body.apellido,
+			peticion.body.date,
+			peticion.body.identificacion,
+			peticion.body.colonia,
+			peticion.body.telefono,
+			peticion.body.email,
+		],
+		function(error, resultado){
+			if (resultado.affectedRows==1){
+				conexion.query(
+					"INSERT INTO tbl_empleados (CODIGO_EMPLEADO, CODIGO_TIPO_EMPLEADO, NUMERO_EMPLEADO, SUELDO_BASE, PASSWORD, CODIGO_FACULTAD) "+
+                    "VALUES (?,1,?,35000,?,?);", 
+					[
+					resultado.insertId,
+					peticion.body.numero,
+					peticion.body.password,
+					peticion.body.facultad,
+					],
+					function(error2, resultado2){
+					conexion.end();
+					respuesta.send(resultado2);		
+				});
+			}
+			
+		});
+});
+
+//-------------------------------Fin Administrador--------------------------------------------
 
 
 

@@ -18,7 +18,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body onload="CargarAlumnosTotales();" class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body onload="CargarProfesoresTotales();" class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="home.html">DIPP-UNAH</a>
@@ -94,9 +94,9 @@
         <div class="col-lg-12">
           <div class="card mb-3">
             <div class="card-header" id="ingresar_actualizar">
-              <i id="i_ingresar_actualizar" class="fas fa-plus"></i> Ingresar Alumno</div>
+              <i id="i_ingresar_actualizar" class="fas fa-plus"></i> Ingresar Profesor</div>
             <div class="card-body">
-             <!-- formulario de registro de Alumnos -->
+             <!-- formulario de registro de profesor -->
 
               <form>
               <div class="tab-content">
@@ -158,7 +158,7 @@
                     </div>
                   </div>
                 </div>
-                <button type="button" onclick="formu(0)" class="btn btn-primary btn-block" ">Siguiente</button>
+                <button type="button" onclick="formu1(0)" class="btn btn-primary btn-block" ">Siguiente</button>
 
                 <!-- fin formulario 1 -->
                 </div>
@@ -190,10 +190,10 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                    <button type="button" onclick="formu(1)" class="btn btn-primary btn-block" ">Volver</button>
+                    <button type="button" onclick="formu1(1)" class="btn btn-primary btn-block" ">Volver</button>
                     </div>
                     <div class="form-group col-md-6">
-                    <button type="button" onclick="formu(2)" class="btn btn-primary btn-block" ">Siguiente</button>
+                    <button type="button" onclick="formu1(2)" class="btn btn-primary btn-block" ">Siguiente</button>
                     </div>
                   </div>
 
@@ -206,8 +206,8 @@
                 <div class="tab-pane " id="formulario3">
 
                  <div class="form-group">
-                  <label >Carrera</label>
-                  <select id="SelectCarrera" class="form-control">
+                  <label >Facultad</label>
+                  <select id="SelectFacultad" class="form-control">
                         
                       </select>
                 </div>
@@ -215,12 +215,12 @@
                 <div class="form-group">
                   <div class="form-row">
                     <div class="col-md-6">
-                      <label >Asignar numero de cuenta</label>
-                      <input class="form-control" id="InputCuenta" type="text" placeholder="Cuenta">
+                      <label >Asignar numero de empleado</label>
+                      <input class="form-control" id="Inputnumero" type="text" placeholder="Cuenta">
                     </div>
                     <div class="col-md-6">
-                      <label >Confirmar numero de cuenta</label>
-                      <input class="form-control" id="ConfirmarCuenta" type="text" placeholder="Cuenta">
+                      <label >Confirmar numero de empleado</label>
+                      <input class="form-control" id="Confirmarnumero" type="text" placeholder="Cuenta">
                     </div>
                   </div>
                 </div>
@@ -239,10 +239,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                    <button type="button" onclick="formu(3)" class="btn btn-primary btn-block" ">Volver</button>
+                    <button type="button" onclick="formu1(3)" class="btn btn-primary btn-block" ">Volver</button>
                     </div>
                     <div class="form-group col-md-6">
-                    <button  type="reset" onclick="formu(4)" class="btn btn-primary btn-block" ">Agregar</button>
+                    <button  type="reset" onclick="formu1(4)" class="btn btn-primary btn-block" ">Agregar</button>
                     </div>
                   </div>
                 
@@ -254,7 +254,7 @@
                 </div>
               </form>
 
-             <!-- fin formulario de registro de Alumnos -->
+             <!-- fin formulario de registro de profesores -->
             </div>
             <div class="card-footer small text-muted">
                <label id="error" style="color: red; font-size:large;"></label>
@@ -267,31 +267,31 @@
        <div class="tab-content">
         <div class="tab-pane active" id="listView">
 
-      <!-- Ver Alumnos -->
+      <!-- Ver profesores -->
       <div class="row">
         <div class="col-lg-12">
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fas fa-users"></i> Ver Alumnos</div>
+              <i class="fas fa-users"></i> Ver profesores</div>
             <div class="card-body">
              
               <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>CUENTA</th>
+                  <th>NUMERO DE EMPLEADO</th>
                   <th>NOMBRE</th>
-                  <th>CARRERA</th>
+                  <th>FACULTAD</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>CUENTA</th>
+                  <th>NUMERO DE EMPLEADO</th>
                   <th>NOMBRE</th>
-                  <th>CARRERA</th>
+                  <th>FACULTAD</th>
                 </tr>
               </tfoot>
-              <tbody id="alumnos">
+              <tbody id="profesores">
                 
 
               </tbody>
@@ -307,7 +307,7 @@
 
         </div>
 
-        <!-- fin Ver Alumnos -->
+        <!-- fin Ver profesores -->
 
         <div class="tab-pane " id="blockView">
 

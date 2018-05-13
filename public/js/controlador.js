@@ -61,31 +61,3 @@ $("#btnEntrar").click(function () {
 	
 });
 
-function efecto(valor) {
-	if(valor==1){
-		$("#blockView").removeClass('active');
-		$("#listView").addClass('active');
-	}else{
-		$("#blockView").addClass('active');
-		$("#listView").removeClass('active');
-	}
-}
-
-function formu(valor) {
-	if(valor==0){
-		$("#formulario1").removeClass('active');
-		$("#formulario2").addClass('active');
-	}else if(valor==1){
-		$("#formulario1").addClass('active');
-		$("#formulario2").removeClass('active');
-	}else if(valor==2){
-		$("#formulario3").addClass('active');
-		$("#formulario2").removeClass('active');
-	}else if(valor==3){
-		$("#formulario2").addClass('active');
-		$("#formulario3").removeClass('active');
-	}else{
-		alert("registro");
-	}
-}
-
